@@ -104,5 +104,19 @@
             @yield('content')
         </main>
     </div>
+    <footer class="jumbotron text-center">
+        <p>© Copyright 2021-{{date("Y")}} Tunisian Poste. <br>Hédi Nouira St - 1030 Tunis, Tunisia. <br>Call center: 1828 || Phone: 71839000</p>
+        <div class="row justify-content-center mt-1">
+            <div class="col-sm-3">
+                <div class="d-flex justify-content-around">
+                    <a target="_blank" href="https://www.facebook.com/TunisianPost/"><img style="width:40px" src="images/icons/facebook.png" alt="facebook icon"></a>
+                    <a target="_blank" href="https://twitter.com/Poste_Tn"><img style="width:40px" src="images/icons/twitter.png" alt="twitter icon"></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCgdccp_xpo1937Jp3N8O_fA"><img style="width:40px" src="images/icons/youtube.png" alt="youtube icon"></a>
+                    <a target="_blank" href="https://www.linkedin.com/company/postetunisienne/"><img style="width:40px" src="images/icons/linkedin.png" alt="linkedin icon"></a>
+                </div>
+            </div>
+        </div>
+        <p class="mt-3">This website is a reconstruction of the official <a target="_blank" href="http://www.poste.tn/index.php">Poste.tn</a><br>Created by <a target="_blank" href="https://www.linkedin.com/in/brahim-benzarti-227069152/">Brahim Benzarti</a> ,an Undergrad at <a target="_blank" href="http://www.tunis-business-school.tn/">TBS,</a> as an Internship project with La Poste Tunisienne.</p>
+    </footer>
 </body>
 </html>

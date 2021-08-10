@@ -1,25 +1,30 @@
 @extends('layouts.app')
 
 @section('content')
-
-    
+<!-- CSS Here -->
 <style>
-  /* Make the image fully responsive */
-  /* .carousel-inner img {
-    width: 100%;
-    height: 100%;
-  } */
   .scrollbar::-webkit-scrollbar {
     width: 0px;
     height: 0px;
     background-color: white; 
   }
+  .maxed{
+    height:100%;
+    width:100%;
+  }
+  .maxed-col{
+    padding:0;
+  }
 </style>
+
+<!-- JS Here -->
 <script>
   function remove_loader(){
     document.querySelector('.loader').style.display='none';
   };
 </script>
+
+<!-- Carousel (slider) -->
 <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
     <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -57,68 +62,75 @@
     <span class="carousel-control-next-icon"></span>
   </a>
 </div>
-<div style="height:30px;width:100%"></div>
-<div class="container" style="height:350px">
-    <div class="row justify-content-between" style="height:350px">
-        <div class="col-lg-4 card" style="padding:0;height:350px;">
-          <img class="card-img-top" src="images/looking_for_rapid_post.png" alt="Rapid post" style="widht:100%;height:100%">
-          <div class="card-img-overlay">
-            <h2 class="card-title">Track your<br><span class="text-primary">Rapid-Post</span><br>shipments</h2>
-            <div style="position:absolute;bottom:15px;">
-              <p class="card-text">Fill you shipment number:</p>
-              <!-- Button to Open the Modal -->
-              <p class="card-text">Can't <a data-toggle="modal" href="#myModal" class="text-primary">find</a> it?</p>
-              <!-- The Modal -->
-              <div class="modal fade" id="myModal">
-                <div class="modal-dialog modal-md modal-dialog-centered ">
-                  <div class="modal-content">
-                    <!-- Modal body -->
-                    <div class="modal-body" style="margin:auto;width:fit-content;">
-                      <img src="images/rapid_post_num_info.jpg" alt="Rapid post number sample">
-                    </div>
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-danger" data-dismiss="modal">Got it!</button>
+
+<!-- main body -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 mt-4" style="min-height:750px;">
+      <div class="row justify-content-around">
+        <div class="col-lg-7 mt-2 maxed-col" style="min-height:365px;">
+          <div class="card">
+            <img class="card-img-top" src="images/looking_for_rapid_post.png" alt="Rapid post" style="widht:100%;height:100%">
+            <div class="card-img-overlay">
+              <h2 class="card-title">Track your<br><span class="text-primary">Rapid-Post</span><br>shipments</h2>
+              <div style="position:absolute;bottom:15px;">
+                <p class="card-text">Fill you shipment number:</p>
+                <!-- Button to Open the Modal -->
+                <p class="card-text">Can't <a data-toggle="modal" href="#myModal" class="text-primary">find</a> it?</p>
+                <!-- The Modal -->
+                <div class="modal fade" id="myModal">
+                  <div class="modal-dialog modal-md modal-dialog-centered ">
+                    <div class="modal-content">
+                      <!-- Modal body -->
+                      <div class="modal-body" style="margin:auto;width:fit-content;">
+                        <img src="images/rapid_post_num_info.jpg" alt="Rapid post number sample">
+                      </div>
+                      <!-- Modal footer -->
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Got it!</button>
+                      </div>
                     </div>
                   </div>
                 </div>
+                <!-- End modal -->
+                <form class="form-inline" method="GET" action="https://www.rapidposte.poste.tn/fr/Item_Events.asp" target="_blank">
+                  <input class="form-control" type="text" name="ItemId" id="rapid_post_shipment_number" placeholder="EE000000000TN" required>
+                  <input class="btn btn-primary ml-2" type="submit" value="Go">
+                </form>
               </div>
-              <form class="form-inline" method="GET" action="https://www.rapidposte.poste.tn/fr/Item_Events.asp" target="_blank">
-                <input class="form-control" type="text" name="ItemId" id="rapid_post_shipment_number" placeholder="EE000000000TN" required>
-                <input class="btn btn-primary ml-2" type="submit" value="Go">
-              </form>
-            </div>
-          </div> 
+            </div> 
+          </div>
         </div>
-        <div class="col-lg-3 card" style="height:350px;padding:0;">
-          <img class="card-img-top" src="images/m_post.png" alt="Rapid post" style="widht:100%;height:100%">
-          <div class="card-img-overlay">
-            <!-- <div  style="position:absolute;bottom:15px;"> -->
+        <div class="col-lg-4 mt-2 maxed-col" style="min-height:365px;">
+          <div class="card maxed">
+            <img class="card-img-top maxed" src="images/m_post.png" alt="Rapid post">
+            <div class="card-img-overlay">
               <h3 class="card-title">Stay Connected!</h3>
               <p class="card-text">with your account via SMS <span class="text-danger">Free</span>.</p>
               <p class="card-text"><a href="/files/form_mpost.pdf" target="_blnak" class="text-primary stretched-link">Click here</a>, and visit us in any Poste Office.</p>
-            <!-- </div> -->
+            </div>
           </div>
         </div>
-        <div class="col-lg-4 scrollbar scrollbar-light" style="height:730px;overflow:scroll;position:relative;">
-          <div class="spinner-grow loader" style="position:absolute;right:50%;top:50%"></div>
-          <iframe loading="lazy" style="width:100%;height:730px" src="./currencies" frameborder="0" onload="remove_loader();"></iframe>
-        </div>
-    </div>
-</div>
-<div style="height:30px;width:100%"></div>
-<div class="container" style="height:350px;min-height:350px">
-  <div class="row justify-content-start" style="height:350px">
-    <div class="col-lg-2" ></div>
-    <div class="col-lg-3 card" style="height:350px;padding:0;">
-      <img class="card-img-top" src="images/ena_tounsi.png" alt="Rapid post" style="widht:100%;height:100%">
-      <div class="card-img-overlay">
-          <a href="#" target="_blnak" class="text-primary stretched-link"></a>
       </div>
+      <div class="row justify-content-around mt-2">
+        <div class="col-lg-4 mt-2 maxed-col" style="min-height:365px;background-color:white;">
+          <div class="card maxed">
+            <img class="card-img-top maxed" src="images/ena_tounsi.png" alt="Rapid post">
+            <div class="card-img-overlay">
+                <a href="/ena_tounsi" class="text-primary stretched-link"></a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-7 mt-2 maxed-col" style="min-height:365px;">
+          <iframe class="maxed scrollbar" src="https://www.youtube.com/embed/h7dxvF-KqNY?autoplay=1&mute=1&loop=1" autoplay muted frameborder="0"></iframe>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 mt-4 maxed-col scrollbar" style="min-height:750px;overflow:scroll;">
+      <div class="spinner-grow loader" style="position:absolute;right:50%;top:50%"></div>
+      <iframe class="scrollbar maxed" loading="lazy" src="./currencies" frameborder="0" onload="remove_loader();"></iframe>
     </div>
   </div>
 </div>
-<div style="height:30px;width:100%"></div>
-<iframe style="width:100%;height:200px;" src="/featuring" frameborder="0"></iframe>
-
+<iframe style="width:100%;height:200px;margin-top:20px;" src="/featuring" frameborder="0"></iframe>
 @endsection

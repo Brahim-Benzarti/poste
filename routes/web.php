@@ -18,6 +18,8 @@ Route::get('currencies', 'App\Http\Controllers\currencies@toshow');
 
 Route::get('featuring', 'App\Http\Controllers\featuring@show');
 
+Route::get('/ena_tounsi', 'App\Http\Controllers\ena_tounsi@show')->name('ena_tounsi');
+Route::get('/ena_tounsi_state_offices', 'App\Http\Controllers\ena_tounsi@showoffices')->name('ena_tounsi_state_offices');
 
 Auth::routes();
 
