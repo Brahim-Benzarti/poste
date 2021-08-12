@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Ena_tounsi_form;
+use App\Models\ena_tounsi_form;
 use Illuminate\Validation\Rule;
 
 class ena_tounsi extends Controller
@@ -61,7 +61,7 @@ class ena_tounsi extends Controller
             "bd"=>["required","date"],
             "bd_place"=>["required","string","max:100"],
             "children"=>["required","numeric","between:0,9"],
-            "cin"=>["required","between:1,99999999","numeric","unique:Ena_tounsi_form"],
+            "cin"=>["required","between:1,99999999","numeric","unique:ena_tounsi_form"],
             "cindate"=>["required","date"],
             "cinplace"=>["required","string","max:100"],
             "cincopy"=>["required","file","mimes:pdf","between:0,5120"],
@@ -90,7 +90,7 @@ class ena_tounsi extends Controller
         $porcopy="por".time().".pdf";
         $request->file('porcopy')->move(public_path('ena_tounsi_files'),$porcopy);
         
-        $table= new Ena_tounsi_form;
+        $table= new ena_tounsi_form;
 
         $table->fname = $request->fn;
         $table->lname = $request->ln;
