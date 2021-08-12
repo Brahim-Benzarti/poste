@@ -51,9 +51,11 @@
                                 <a class="dropdown-item" href="#">Practical information</a>
                             </div>
                         </li>
+                        @auth
                         <li class="nav-item">
-                            <a class="nav-link" href="#">{{ __('News') }}</a>
+                            <a class="nav-link" href="{{route('news')}}">{{ __('News') }}</a>
                         </li>
+                        @endauth
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" >{{ __('Services ') }}</a>
                             <div class="dropdown-menu dropdown-menu-right">

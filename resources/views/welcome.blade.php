@@ -33,7 +33,7 @@
   </ul>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/images/1.png" alt="Los Angeles" width="100%" height="500">
+      <img src="/images/1.png" alt="" width="100%" height="500">
       <div class="carousel-caption">
         <h2>Mobile Application</h2>
         <p>Get your ticket from home, put an end for waiting!</p>
@@ -41,17 +41,17 @@
       </div>   
     </div>
     <div class="carousel-item">
-      <img src="/images/2.png" alt="Chicago" width="100%" height="500">
+      <img src="/images/2.png" alt="" width="100%" height="500">
       <div class="carousel-caption">
-        <h3>Title</h3>
+        <h3>La Poste Tunisienne</h3>
         <p>I don't know man, put something</p>
       </div>   
     </div>
     <div class="carousel-item">
-      <img src="/images/3.png" alt="New York" width="100%" height="500">
+      <img src="/images/3.png" alt="" width="100%" height="500">
       <div class="carousel-caption">
-        <h3>Title!!</h3>
-        <p>shit!</p>
+        <h3>La poste</h3>
+        <p>don't know what to put here either!</p>
       </div>   
     </div>
   </div>
