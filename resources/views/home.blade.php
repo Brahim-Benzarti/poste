@@ -15,6 +15,7 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    {{__('your Id is :')}}
                 </div>
             </div>
         </div>

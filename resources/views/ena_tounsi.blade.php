@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+<!-- @if (count($errors) > 0)
+   <div class = "alert alert-danger">
+      <ul>
+         @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+         @endforeach
+      </ul>
+   </div>
+@endif -->
 <!-- Button to Open the Modal -->
 <button type="button" class="btn btn-primary" style="display:none;" data-toggle="modal" data-target="#myModal" id="vidpopup">
   Open modal
@@ -12,12 +21,12 @@
     <div class="modal-content">
       <!-- Modal body -->
       <div class="modal-body">
-        <iframe onload="document.getElementById('vidpopup').click();" style="width:100%;height:300px;" src="https://www.youtube.com/embed/bXWLVP3G1H0?controls=0&modestbranding=1&rel=0" frameborder="0" ></iframe>
+        <iframe @if(count($errors)>0) onload="popup(0);" @else onload="popup(1);" @endif style="width:100%;height:300px;" src="https://www.youtube.com/embed/bXWLVP3G1H0?controls=0&autoplay=1&modestbranding=1&rel=0" frameborder="0" ></iframe>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="setTimeout(()=>{this.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode)},500);">Close</button>
+        <button id="close" type="button" class="btn btn-danger" data-dismiss="modal" onclick="setTimeout(()=>{this.parentNode.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode.parentNode)},500);">Close</button>
       </div>
 
     </div>
@@ -32,8 +41,8 @@
                 <div class="card-header">{{ __('Demand of reservation for the « Ena Tounsi » pack.') }}</div>
 
                 <div class="card-body">
-                    <!-- <form method="POST" action="{{ route('ena_tounsi') }}"> -->
-                    <form method="POST" action="#">
+                    <form method="POST" action="{{ route('ena_tounsi') }}" enctype="multipart/form-data">
+
                         @csrf
 
                         <!-- civility -->
@@ -89,10 +98,10 @@
 
                             <div class="col-md-6">
                                 <select id="civilstatus" class="form-control @error('civilstatus') is-invalid @enderror" name="civilstatus" value="{{ old('civilstatus') }}" required autocomplete="civilstatus" autofocus>
-                                    <option value="sigle">Single</option>
-                                    <option value="married">Married</option>
-                                    <option value="divorced">Divorced</option>
-                                    <option value="widow">Widow(er)</option>
+                                    <option value="Single">Single</option>
+                                    <option value="Married">Married</option>
+                                    <option value="Divorced">Divorced</option>
+                                    <option value="Widow">Widow(er)</option>
                                 </select>
 
                                 @error('civilstatus')
@@ -231,9 +240,11 @@
                                     <label for="cincopy" class="col-sm-4 col-form-label text-sm-right">{{ __('Upload a copy') }}</label>
 
                                     <div class="col-sm-8">
-                                        <label class="btn btn-primary form-control @error('cincopy') is-invalid @enderror">Choose a file
+                                        <label id="cincopymessage" class="btn btn-primary form-control @error('cincopy') is-invalid @enderror"><span>Choose a file</span>
                                             <input id="cincopy" type="file" style="visibility:hidden;" name="cincopy" value="{{ old('cincopy') }}" required autocomplete="cincopy" autofocus>
                                         </label>
+                                        <!-- <p id="cincopymessage" class="text-success"></p> -->
+                                        <!-- <progress id="progressBar" value="0" max="100" style="width:300px;"></progress> -->
 
                                         @error('cincopy')
                                             <span class="invalid-feedback" role="alert">
@@ -304,8 +315,8 @@
 
                                     <div class="col-sm-8">
 
-                                        <label class="btn btn-primary form-control @error('porcopy') is-invalid @enderror">Choose a file
-                                            <input style="visibility:hidden;" id="porcopy" type="file" name="porcopy" value="{{ old('porcopy') }}" required autocomplete="porcopy" autofocus>
+                                        <label id="porcopymessage" class="btn btn-primary form-control @error('porcopy') is-invalid @enderror"><span>Choose a file</span> 
+                                            <input id="porcopy" onprogress="alert('fun');" style="visibility:hidden;" id="porcopy" type="file" name="porcopy" value="{{ old('porcopy') }}" required autocomplete="porcopy" autofocus>
                                         </label>
 
                                         @error('porcopy')
@@ -511,7 +522,7 @@
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="terms" id="terms" {{ old('terms') ? 'checked' : '' }}>
+                                    <input class="form-check-input" type="checkbox" name="terms" id="terms" {{ old('terms') ? 'checked' : '' }} required>
 
                                     <label class="form-check-label" for="terms">I've read and Accepted</label>
                                     <a href="files/ena_tounsi_terms.pdf">the general terms of « Ena Tounsi ».</a>

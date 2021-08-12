@@ -117,7 +117,7 @@
           <div class="card maxed">
             <img class="card-img-top maxed" src="images/ena_tounsi.png" alt="Rapid post">
             <div class="card-img-overlay">
-                <a href="/ena_tounsi" class="text-primary stretched-link"></a>
+                <a href="{{ route('ena_tounsi') }}" class="text-primary stretched-link"></a>
             </div>
           </div>
         </div>
