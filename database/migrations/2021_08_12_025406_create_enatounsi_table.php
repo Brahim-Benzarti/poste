@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEnaTounsiformTable extends Migration
+class CreateEnatounsiTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateEnaTounsiformTable extends Migration
      */
     public function up()
     {
-        Schema::create('ena_tounsi_form', function (Blueprint $table) {
+        Schema::create('ena_tounsi_forms', function (Blueprint $table) {
             $table->id();
             $table->string('fname');
             $table->string('lname');
@@ -55,6 +55,6 @@ class CreateEnaTounsiformTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ena_tounsi_form');
+        Schema::dropIfExists('ena_tounsi_forms');
     }
 }

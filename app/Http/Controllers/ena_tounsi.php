@@ -61,7 +61,7 @@ class ena_tounsi extends Controller
             "bd"=>["required","date"],
             "bd_place"=>["required","string","max:100"],
             "children"=>["required","numeric","between:0,9"],
-            "cin"=>["required","between:1,99999999","numeric","unique:ena_tounsi_form"],
+            "cin"=>["required","between:1,99999999","numeric","unique:ena_tounsi_forms"],
             "cindate"=>["required","date"],
             "cinplace"=>["required","string","max:100"],
             "cincopy"=>["required","file","mimes:pdf","between:0,5120"],
