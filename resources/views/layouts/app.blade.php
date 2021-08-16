@@ -11,8 +11,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- <script src="{{ asset('js/slick.min.js') }}"></script>
-    <script src="{{ asset('js/jquery.min.js') }}"></script> -->
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -52,8 +50,16 @@
                             </div>
                         </li>
                         @auth
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ __('News') }}</a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <a class="dropdown-item" href="{{route('news')}}">News</a>
+                                <a class="dropdown-item" href="{{route('AdminFormForNews')}}">Add</a>
+                            </div>
+                        </li>
+                        @else
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('news')}}">{{ __('News') }}</a>
+                            <a class="nav-link" href="{{route('news')}}">{{ __('News ') }}</a>
                         </li>
                         @endauth
                         <li class="nav-item dropdown">
@@ -111,10 +117,10 @@
         <div class="row justify-content-center mt-1">
             <div class="col-sm-3">
                 <div class="d-flex justify-content-around">
-                    <a target="_blank" href="https://www.facebook.com/TunisianPost/"><img style="width:40px" src="images/icons/facebook.png" alt="facebook icon"></a>
-                    <a target="_blank" href="https://twitter.com/Poste_Tn"><img style="width:40px" src="images/icons/twitter.png" alt="twitter icon"></a>
-                    <a target="_blank" href="https://www.youtube.com/channel/UCgdccp_xpo1937Jp3N8O_fA"><img style="width:40px" src="images/icons/youtube.png" alt="youtube icon"></a>
-                    <a target="_blank" href="https://www.linkedin.com/company/postetunisienne/"><img style="width:40px" src="images/icons/linkedin.png" alt="linkedin icon"></a>
+                    <a target="_blank" href="https://www.facebook.com/TunisianPost/"><img style="width:40px" src="{{asset('images/icons/facebook.png')}}" alt="facebook icon"></a>
+                    <a target="_blank" href="https://twitter.com/Poste_Tn"><img style="width:40px" src="{{asset('images/icons/twitter.png')}}" alt="twitter icon"></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCgdccp_xpo1937Jp3N8O_fA"><img style="width:40px" src="{{asset('images/icons/youtube.png')}}" alt="youtube icon"></a>
+                    <a target="_blank" href="https://www.linkedin.com/company/postetunisienne/"><img style="width:40px" src="{{asset('images/icons/linkedin.png')}}" alt="linkedin icon"></a>
                 </div>
             </div>
         </div>

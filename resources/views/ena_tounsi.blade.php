@@ -1,15 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- @if (count($errors) > 0)
-   <div class = "alert alert-danger">
-      <ul>
-         @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-         @endforeach
-      </ul>
-   </div>
-@endif -->
+
 <!-- Button to Open the Modal -->
 <button type="button" class="btn btn-primary" style="display:none;" data-toggle="modal" data-target="#myModal" id="vidpopup">
   Open modal
@@ -17,11 +9,11 @@
 
 <!-- The Modal -->
 <div class="modal fade" id="myModal">
-  <div class="modal-dialog modal-md modal-dialog-centered ">
+  <div class="modal-dialog modal-lg modal-dialog-centered ">
     <div class="modal-content">
       <!-- Modal body -->
       <div class="modal-body">
-        <iframe @if(count($errors)>0) onload="popup(0);" @else onload="popup(1);" @endif style="width:100%;height:300px;" src="https://www.youtube.com/embed/bXWLVP3G1H0?controls=0&autoplay=1&modestbranding=1&rel=0" frameborder="0" ></iframe>
+        <iframe @if(count($errors)>0) onload="popup(0);" @else onload="popup(1);" @endif style="width:100%;height:60vh;" src="https://www.youtube.com/embed/bXWLVP3G1H0?controls=0&autoplay=1&modestbranding=1&rel=0" frameborder="0" ></iframe>
       </div>
 
       <!-- Modal footer -->
