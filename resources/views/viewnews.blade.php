@@ -17,15 +17,15 @@
     @endif
     <div id="second">{{$news['secondary']}}</div>
     @if(strlen($news->gallery)>0)
-    <div id="gallery" class="row justify-content-between">
+    <div id="gallery" class="row justify-content-around" style="min-height:300px;padding:20px;">
         @foreach(array_slice(explode('|',$news->gallery),0,count(explode('|',$news->gallery))-1) as $image)
-        <div class="col-md-4">
-            <img src="{{asset('news/'.$image)}}" alt="" srcset="">
+        <div class="col-md-4" style="width:100%; height:300px;">
+            <img src="{{asset('news/'.$image)}}" style="width:100%;height:100%">
         </div>
         @endforeach
     </div>
     @endif
-    <p>Read more at <a target="_blank" href="www.e-stamps.poste.tn">www.e-stamps.poste.tn</a> , <a target="_blank" href="www.tunisia-stamps.tn">www.tunisia-stamps.tn</a></p>
+    <a href="{{route('news')}}" style="float:right;"><- Go back</a>
     @else
     <h3 class="text-danger">Nothing to show</h3>
     @endif
