@@ -29,6 +29,7 @@ Route::get('/new', [App\Http\Controllers\news::class , 'show'])->name('news');
 Route::get('/new/{title?}', [App\Http\Controllers\news::class , 'showone'], )->name('detailedNews');
 Route::middleware(["auth"])->group(function () {
     Route::get('AddNews', [App\Http\Controllers\news::class , 'adminform'])->name('AdminFormForNews');
+    Route::match(['post','get',"put"],'EditNews/{id?}', [App\Http\Controllers\news::class , 'adminformtoedit'])->name('AdminFormForEditNews');
     Route::post('AddNews',  [App\Http\Controllers\news::class , 'addnews'])->name('addnews');
     Route::post('inputField',[App\Http\Controllers\news::class , 'showinput']);
 });

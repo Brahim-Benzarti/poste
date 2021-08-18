@@ -44,7 +44,6 @@
                                 <a class="dropdown-item" href="#">History</a>
                                 <a class="dropdown-item" href="#">Our numbers</a>
                                 <a class="dropdown-item" href="#">Our commercial network</a>
-                                <!-- <a class="dropdown-item" href="#">News</a> -->
                                 <a class="dropdown-item" href="#">Downloads</a>
                                 <a class="dropdown-item" href="#">Practical information</a>
                             </div>
@@ -78,12 +77,6 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-
-                            <!-- @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif -->
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

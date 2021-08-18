@@ -85,19 +85,18 @@
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <div class="col-lg-3">
-                                        <select id="ln" type="text" class="form-control @error('ln') is-invalid @enderror" name="ln" value="{{ old('li  ') }}" required autocomplete="ln" autofocus>
-                                            <option value="0" default>None</option>
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="5">5</option>
-                                            <option value="6">6</option>
-                                            <option value="7">7</option>
-                                            <option value="8">8</option>
-                                            <option value="9">9</option>
+                                        <select id="ln" class="form-control @error('ln') is-invalid @enderror" name="ln" required autocomplete="ln" autofocus>
+                                            <option value="0" @if(old('ln')=="0") selected @endif>None</option>
+                                            <option value="1" @if(old('ln')=="1") selected @endif>1</option>
+                                            <option value="2" @if(old('ln')=="2") selected @endif>2</option>
+                                            <option value="3" @if(old('ln')=="3") selected @endif>3</option>
+                                            <option value="4" @if(old('ln')=="4") selected @endif>4</option>
+                                            <option value="5" @if(old('ln')=="5") selected @endif>5</option>
+                                            <option value="6" @if(old('ln')=="6") selected @endif>6</option>
+                                            <option value="7" @if(old('ln')=="7") selected @endif>7</option>
+                                            <option value="8" @if(old('ln')=="8") selected @endif>8</option>
+                                            <option value="9" @if(old('ln')=="9") selected @endif>9</option>
                                         </select>
-                                        <!-- <input id="ln" type="text" class="form-control @error('ln') is-invalid @enderror" name="ln" value="{{ old('Number') }}" required autocomplete="ln" autofocus> -->
 
                                         @error('ln')
                                             <span class="invalid-feedback" role="alert">
@@ -118,7 +117,7 @@
 
                             <div class="col-md-6">
                                 <label id="gallerylabel" for="gallery" class="btn btn-primary form-control @error('gallery') is-invalid @enderror"><span id="filemessage">Choose Image(s)</span>
-                                    <input style="display:none;" multiple id="gallery" type="file" name="gallery[]" value="{{ old('gallery') }}" autocomplete="gallery" accept="image/*" autofocus>
+                                    <input style="display:none;" multiple id="gallery" type="file" name="gallery[]"  value="{{ old('gallery') }}" autocomplete="gallery" accept="image/*" autofocus>
                                 </label>
                                 @error('gallery')
                                     <span class="invalid-feedback" role="alert">
@@ -143,6 +142,6 @@
         </div>
     </div>
 </div>
-<script src="js/jquery.min.js"></script>
-<script src="js/news.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
+<script src="{{asset('js/news.js')}}"></script>
 @endsection
