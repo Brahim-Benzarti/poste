@@ -120,6 +120,38 @@
 
 
 
+    @if(strlen($news->gallery)>0)
+    <div class="row mt-3">
+        <div class="col">
+            <div id="gallery" class="row justify-content-around" style="min-height:300px;">
+                @foreach(explode('|',$news->gallery) as $i=>$image)
+                <div class="card mt-1 col-lg-@if(count(explode('|',$news->gallery)) % 2 == 0){{6}}@elseif(count(explode('|',$news->gallery))==1){{8}}@else{{4}}@endif" style="padding:0;width:100%; height:@if(count(explode('|',$news->gallery)) % 2 == 0){{350}}@elseif(count(explode('|',$news->gallery))==1){{400}}@else{{300}}@endif px;">
+                    <img class="card-img-top" src="{{asset('news/'.$image)}}" style="width:100%;height:100%;">
+                    @auth @if($edit)
+                    <div class="card-img-overlay d-flex justify-content-around align-items-end">
+                        <!-- this needs to be fixed the server gets the same image name for every req.. thus starting from the second update an error will be thrown -->
+                        <!-- a patch is needed here  -->
+                        <div style="position:absolute;"></div>
+                        <button class="btn btn-success" onclick="updateimage(this,0);" value="{{$image}}">Change</button> 
+                        <button class="btn btn-danger" onclick="updateimage(this,1);" value="{{$image}}">Remove</button>
+                    </div>
+                    @endif @endauth
+                </div>
+                @endforeach
+            </div>
+        </div>
+        @auth @if($edit)
+        <form style="display:none" method="post" id="pictureForm" enctype="multipart/form-data">
+            @csrf
+            <input id="picadd" type="file" name="gall" >
+        </form>
+        @endif @endauth
+    </div>
+    @endif
+
+
+
+
     <div class="row mt-3" id="secondary">
         <div class="col">
         @if($edit)
@@ -157,36 +189,6 @@
 
 
 
-    @if(strlen($news->gallery)>0)
-    <div class="row mt-3">
-        <div class="col">
-            <div id="gallery" class="row justify-content-around" style="min-height:300px;">
-                @foreach(explode('|',$news->gallery) as $i=>$image)
-                <div class="card mt-1 col-lg-@if(count(explode('|',$news->gallery)) % 2 == 0){{6}}@elseif(count(explode('|',$news->gallery))==1){{8}}@else{{4}}@endif" style="padding:0;width:100%; height:@if(count(explode('|',$news->gallery)) % 2 == 0){{350}}@elseif(count(explode('|',$news->gallery))==1){{400}}@else{{300}}@endif px;">
-                    <img class="card-img-top" src="{{asset('news/'.$image)}}" style="width:100%;height:100%;">
-                    @auth @if($edit)
-                    <div class="card-img-overlay d-flex justify-content-around align-items-end">
-                        <!-- this needs to be fixed the server gets the same image name for every req.. thus starting from the second update an error will be thrown -->
-                        <!-- a patch is needed here  -->
-                        <button class="btn btn-success" onclick="updateimage('{{$image}}',0);">Change</button> 
-                        <button class="btn btn-danger" onclick="updateimage('{{$image}}',1);">Remove</button>
-                    </div>
-                    @endif @endauth
-                </div>
-                @endforeach
-            </div>
-        </div>
-        @auth @if($edit)
-        <form style="display:none" method="post" id="pictureForm" enctype="multipart/form-data">
-            @csrf
-            <input id="picadd" type="file" name="gall" >
-        </form>
-        @endif @endauth
-    </div>
-    @endif
-
-
-
 
 
     <a href="{{route('news')}}" style="float:right;"><- Go back</a>
@@ -201,6 +203,8 @@
         </div>
     </div>
     @endif
+
+    <div id="debbuging"></div>
 </div>
 <script src="{{asset('js/jquery.min.js')}}"></script>
 <script src="{{asset('js/newsedit.js')}}"></script>

@@ -68,6 +68,7 @@
   <div class="row">
     <div class="col-lg-8 mt-4" style="min-height:750px;">
       <div class="row justify-content-around">
+
         <div class="col-lg-7 mt-2 maxed-col" style="min-height:365px;">
           <div class="card">
             <img class="card-img-top" src="images/looking_for_rapid_post.png" alt="Rapid post" style="widht:100%;height:100%">
@@ -101,18 +102,21 @@
             </div> 
           </div>
         </div>
+
         <div class="col-lg-4 mt-2 maxed-col" style="min-height:365px;">
           <div class="card maxed">
             <img class="card-img-top maxed" src="images/m_post.png" alt="Rapid post">
             <div class="card-img-overlay">
-              <h3 class="card-title">Stay Connected!</h3>
-              <p class="card-text">with your account via SMS <span class="text-danger">Free</span>.</p>
-              <p class="card-text"><a href="/files/form_mpost.pdf" target="_blnak" class="text-primary stretched-link">Click here</a>, and visit us in any Poste Office.</p>
+              <a href="{{asset('/files/form_mpost.pdf')}}" target="_blnak" class="text-primary stretched-link"></a>
             </div>
           </div>
         </div>
       </div>
+
+
+
       <div class="row justify-content-around mt-2">
+
         <div class="col-lg-4 mt-2 maxed-col" style="min-height:365px;background-color:white;">
           <div class="card maxed">
             <img class="card-img-top maxed" src="images/ena_tounsi.png" alt="Rapid post">
@@ -121,10 +125,12 @@
             </div>
           </div>
         </div>
+
         <div class="col-lg-7 mt-2 maxed-col" style="min-height:365px;">
-          <iframe class="maxed scrollbar" src="https://www.youtube.com/embed/h7dxvF-KqNY?autoplay=1&mute=1&loop=1" autoplay muted frameborder="0"></iframe>
+          <iframe class="maxed scrollbar" src="https://www.youtube.com/embed/h7dxvF-KqNY?playlist=h7dxvF-KqNY&autoplay=1&mute=1&loop=1" autoplay muted frameborder="0"></iframe>
         </div>
       </div>
+
     </div>
     <div class="col-lg-3 mt-4 maxed-col scrollbar" style="min-height:750px;overflow:scroll;">
       <div class="spinner-grow loader" style="position:absolute;right:50%;top:50%"></div>

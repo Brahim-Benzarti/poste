@@ -35,6 +35,9 @@ class news extends Controller
                 return redirect()->route('news');
             }
         }else if($request->method()=="POST"){
+            $this->validate($request, [
+                "v"=>["required","numeric","between:1,2"]
+            ]);
             if($request->v==1){
                 $this->validate($request, [
                     'ln'=>["sometimes",'numeric','between:0,9'],
@@ -60,15 +63,30 @@ class news extends Controller
                 return "200";
             }else if($request->v ==2){
                 $this->validate($request, [
-                    "gall"=>["required","image","mimes:jpeg,png,jpg,gif","max:10240"]
+                    "del"=>["required","numeric","between:0,1"]
                 ]);
-                $table= newsmodel::find($request->news);
-                unlink(public_path('news/'.$request->index));
-                $newimage=time().$request->gall->hashname();
-                $request->gall->move(public_path("news"),$newimage);
-                $table->gallery=str_ireplace($request->index,$newimage,$table->gallery);
-                $table->save();
-                return $newimage;
+                if($request->del){
+                    // ********** finish thiiis
+                    // make an array check for the image skip it in the reconstruction of the array
+                    // $table= newsmodel::find($request->news);
+                    // unlink(public_path('news/'.$request->index));
+                    // *****logic
+                    // $table->save();
+                }else{
+                    $this->validate($request, [
+                        "gall"=>["required","image","mimes:jpeg,png,jpg,gif","max:10240"]
+                    ]);
+                    $table= newsmodel::find($request->news);
+                    unlink(public_path('news/'.$request->index));
+                    $newimage=time().$request->gall->hashname();
+                    $request->gall->move(public_path("news"),$newimage);
+                    $table->gallery=str_ireplace($request->index,$newimage,$table->gallery);
+                    $table->save();
+                    return response()->json([
+                        "newimage"=>$newimage,
+                        "delete"=>0
+                    ]);
+                }
             }
         }
     }

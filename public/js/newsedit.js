@@ -97,6 +97,7 @@ $(()=>{
         $('#pictureForm').submit();
     })
     $('#pictureForm').on("submit", (e)=>{
+        oldimg.previousElementSibling.classList.add("spinner-border");
         e.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -106,25 +107,35 @@ $(()=>{
         let fd=new FormData(document.getElementById("pictureForm"));
         fd.append("v",2);
         fd.append("del",imgdel);
-        fd.append("index",oldimg);
+        fd.append("index",oldimg.value);
         fd.append("user",user_id);
         fd.append("news",id);
         $.ajax({
             url:'/EditNews/'+id,
             method: "POST",
             data: fd,
-            // dataType:"JSON",
+            dataType:"JSON",
             contentType:false,
             cache:false,
             processData:false,
             success:(data)=>{
+                // $("#debbuging").html(data);
                 let path="http://"+window.location.host;
-                console.log($("img[src='"+path+"/news/"+oldimg+"']").attr('src'));
-                $("img[src='"+path+"/news/"+oldimg+"']").attr({
-                    "src":path+"/news/"+data
-                })
+                // console.log($("img[src='"+path+"/news/"+oldimg.value+"']").attr('src'));
+                if(data.delete){
+                    $("img[src='"+path+"/news/"+oldimg.value+"']").remove();
+                }else{
+                    $("img[src='"+path+"/news/"+oldimg.value+"']").attr({
+                        "src":path+"/news/"+data.newimage
+                    })
+                    oldimg.value=data.newimage;
+                    oldimg.previousElementSibling.classList.remove("spinner-border");
+                }
+            },
+            error: (a,b,c)=>{
+                oldimg.previousElementSibling.classList.remove("spinner-border");
             }
-        })
+        });
     })
 
 })
