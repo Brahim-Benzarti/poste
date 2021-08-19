@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Auth;
-use App\Models\user;
+use App\Models\User;
 use App\Models\news as newsmodel;
 
 class news extends Controller
