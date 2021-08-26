@@ -34,10 +34,7 @@ Route::middleware(["auth"])->group(function () {
     Route::post('inputField',[App\Http\Controllers\news::class , 'showinput']);
 });
 
-
-
 // Route::get('news', [App\Http\Controllers\news::class , 'show'])->name('news');
-
 
 Auth::routes();
 

@@ -30,28 +30,35 @@
     <li data-target="#demo" data-slide-to="0" class="active"></li>
     <li data-target="#demo" data-slide-to="1"></li>
     <li data-target="#demo" data-slide-to="2"></li>
+    <li data-target="#demo" data-slide-to="3"></li>
   </ul>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="/images/1.png" alt="" width="100%" height="500">
+      <img src="{{asset('/images/la_poste.png')}}" alt="" width="100%" height="500">
       <div class="carousel-caption">
-        <h2>Mobile Application</h2>
-        <p>Get your ticket from home, put an end for waiting!</p>
-        <p>And much more!</p>
+        <h2>La Poste Tunisienne</h2>
+        {{-- <p></p> --}}
       </div>   
     </div>
     <div class="carousel-item">
-      <img src="/images/2.png" alt="" width="100%" height="500">
+      <img src="{{asset('images/best_postal_operator.jpg')}}" alt="" width="100%" height="500">
       <div class="carousel-caption">
-        <h3>La Poste Tunisienne</h3>
-        <p>I don't know man, put something</p>
+        <h3>Best Postal Operator</h3>
+        {{-- <p></p> --}}
       </div>   
     </div>
     <div class="carousel-item">
-      <img src="/images/3.png" alt="" width="100%" height="500">
+      <img src="{{asset('images/mobile_payment.webp')}}" alt="" width="100%" height="500">
       <div class="carousel-caption">
-        <h3>La poste</h3>
-        <p>don't know what to put here either!</p>
+        <h3>Mobile Payment</h3>
+        {{-- <p></p> --}}
+      </div>   
+    </div>
+    <div class="carousel-item">
+      <img src="{{asset('images/lycamobile.jpg')}}" alt="" width="100%" height="500">
+      <div class="carousel-caption">
+        <h3>Stratigic Partnership With Lycamobile</h3>
+        {{-- <p></p> --}}
       </div>   
     </div>
   </div>

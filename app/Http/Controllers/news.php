@@ -7,6 +7,7 @@ use Illuminate\Validation\Rule;
 use Auth;
 use App\Models\User;
 use App\Models\news as newsmodel;
+use Illuminate\Support\Facades\Storage;
 
 class news extends Controller
 {
@@ -134,6 +135,10 @@ class news extends Controller
             foreach($request->gallery as $image){
                 $name=time().$image->hashname();
                 $image->move(public_path('news'),$name);
+                Storage::disk('s3')->put($name,'/public/news/'.$name);
+                // $path = $image->store('images','s3');
+                // Storage::disk('s3')->store($name,'/public/news/'.$name);
+                // Storage::disk('s3')->setVisibility($path, "public");
                 $table->gallery.=$name.'|';
             }
             $table->gallery=substr($table->gallery,0,strlen($table->gallery)-1);
