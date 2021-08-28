@@ -21,10 +21,10 @@
                     <div class="col-lg-4" style="padding:0;">
                         <div class="card" style="width:100%;height:200px;">
                             @if($new->gallery)
-                                <img class="card-img-top" style="width:100%;height:100%;"  src="news/{{explode('|',$new->gallery)[0]}}" alt="News image"> 
+                                <img class="card-img-top" style="width:100%;height:100%;"  src="{{asset('news/'.explode('|',$new->gallery)[0])}}" alt="News image"> 
                                 {{-- <img class="card-img-top" style="width:100%;height:100%;"  src="{{Storage::disk('s3')->response(explode('|',$new->gallery)[0])}}" alt="News image"> --}}
                             @else
-                                <img class="card-img-top" style="width:100%;height:100%;"  src="icon.png" alt="Poste logo">
+                                <img class="card-img-top" style="width:100%;height:100%;"  src="{{asset('new.png')}}" alt="Poste logo">
                             @endif
                             @auth <div class="card-img-overlay d-flex align-items-end justify-content-center"><button class="btn btn-primary" onclick="show({{$new->id}}+'panel');"> Info</button></div> @endauth
                         </div> 
@@ -33,10 +33,10 @@
                     <div class="col-lg-4" style="padding:0;">
                         <div class="card" style="width:100%;height:200px;">
                             @if($new->gallery)
-                                <img class="card-img-top" style="width:100%;height:100%;"  src="news/{{explode('|',$new->gallery)[0]}}" alt="News image"> 
+                                <img class="card-img-top" style="width:100%;height:100%;"  src="{{asset('news/'.explode('|',$new->gallery)[0])}}" alt="News image"> 
                                 {{-- <img class="card-img-top" style="width:100%;height:100%;"  src="{{Storage::disk('s3')->response(explode('|',$new->gallery)[0])}}" alt="News image"> --}}
                             @else
-                                <img class="card-img-top" style="width:100%;height:100%;"  src="icon.png" alt="Poste logo">
+                                <img class="card-img-top" style="width:100%;height:100%;"  src="{{asset('new.png')}}" alt="Poste logo">
                             @endif
                             @auth <div class="card-img-overlay d-flex align-items-end justify-content-center"><button class="btn btn-primary" onload="this.click()" onclick="show({{$new->id}}+'panel');"> Info</button></div> @endauth
                         </div> 
