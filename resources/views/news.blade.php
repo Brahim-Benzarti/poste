@@ -21,8 +21,8 @@
                     <div class="col-lg-4" style="padding:0;">
                         <div class="card" style="width:100%;height:200px;">
                             @if($new->gallery)
-                                <!-- <img class="card-img-top" style="width:100%;height:100%;"  src="news/{{explode('|',$new->gallery)[0]}}" alt="News image"> -->
-                                <img class="card-img-top" style="width:100%;height:100%;"  src="{{Storage::disk('s3')->response(explode('|',$new->gallery)[0])}}" alt="News image">
+                                <img class="card-img-top" style="width:100%;height:100%;"  src="news/{{explode('|',$new->gallery)[0]}}" alt="News image"> 
+                                {{-- <img class="card-img-top" style="width:100%;height:100%;"  src="{{Storage::disk('s3')->response(explode('|',$new->gallery)[0])}}" alt="News image"> --}}
                             @else
                                 <img class="card-img-top" style="width:100%;height:100%;"  src="icon.png" alt="Poste logo">
                             @endif
@@ -33,8 +33,8 @@
                     <div class="col-lg-4" style="padding:0;">
                         <div class="card" style="width:100%;height:200px;">
                             @if($new->gallery)
-                                <!-- <img class="card-img-top" style="width:100%;height:100%;"  src="news/{{explode('|',$new->gallery)[0]}}" alt="News image"> -->
-                                <img class="card-img-top" style="width:100%;height:100%;"  src="{{Storage::disk('s3')->response(explode('|',$new->gallery)[0])}}" alt="News image">
+                                <img class="card-img-top" style="width:100%;height:100%;"  src="news/{{explode('|',$new->gallery)[0]}}" alt="News image"> 
+                                {{-- <img class="card-img-top" style="width:100%;height:100%;"  src="{{Storage::disk('s3')->response(explode('|',$new->gallery)[0])}}" alt="News image"> --}}
                             @else
                                 <img class="card-img-top" style="width:100%;height:100%;"  src="icon.png" alt="Poste logo">
                             @endif
