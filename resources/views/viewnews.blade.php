@@ -9,10 +9,10 @@
     <div class="row mb-3">
         <div class="col">
         @if($edit)
-        <label id="title"  class="display-3" for="titleedit">{{$news['title']}}</label>
+        <label id="title"  class="display-4" for="titleedit">{{$news['title']}}</label>
         <div class="row">
             <div class="col" style="padding:0px;">
-                <input id="titleedit" name="title" value="{{$news['title']}}" style="position:absolute;width:0px;height:0px;border:0px;" required>
+                <input id="titleedit" name="title" value="{{$news['title']}}" class="form-control" required>
                 <meta id="oldtitle" content="{{$news['title']}}">
             </div>
         </div>
@@ -27,7 +27,7 @@
             </div>
         </div>
         @else
-        <p id="title" class="display-3">
+        <p id="title" class="display-4">
             {{$news['title']}}
         </p>
         @endif
@@ -40,7 +40,7 @@
         @if($edit)
         <div class="row">
             <div class="col" style="padding:0px;">
-                <textarea id="mainedit" name="main" style="width:100%;" rows="6">{{$news['main']}}</textarea>
+                <textarea class="form-control" id="mainedit" name="main" style="width:100%;" rows="6">{{$news['main']}}</textarea>
                 <meta id="oldmain" content="{{$news['main']}}">
             </div>
         </div>
@@ -157,7 +157,7 @@
         @if($edit)
         <div class="row">
             <div class="col" style="padding:0px;">
-                <textarea id="secondaryedit" name="secondary" style="width:100%;" rows="6">{{$news['secondary']}}</textarea>
+                <textarea class="form-control" id="secondaryedit" name="secondary" style="width:100%;" rows="6">{{$news['secondary']}}</textarea>
                 <meta id="oldsecondary" content="{{$news['secondary']}}">
             </div>
         </div>
