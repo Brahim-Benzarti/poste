@@ -13,7 +13,7 @@
 <body>
     <div class="container">
         <h2 class="text-center font-weight-bold">Featuring</h2>
-        <section class="customer-logos slider">
+        <section class="row customer-logos slider">
             <div class="slide"><a href="http://www.ccpnet.poste.tn/fr/" target="_blank"><img src="images/featuring/ccpnet.png" alt="logo"></a></div>
             <!-- <div class="slide"><a href="" target="_blank"></a><img src="images/featuring/e_eshop.gif" alt="logo"></div> -->
             <div class="slide"><a href="https://e-dinar.poste.tn/fr/guide4.html" target="_blank"><img src="images/featuring/logo_mobimoney.png" alt="logo"></a></div>
@@ -28,25 +28,38 @@
     <script>
     
     $(document).ready(function(){
+        var num=6;
         $('.customer-logos').slick({
-            slidesToShow: 6,
+            slidesToShow:6,
             slidesToScroll: 1,
             autoplay: true,
             autoplaySpeed: 1500,
             arrows: false,
             dots: false,
-            pauseOnHover:false,
-            responsive: [{
-                breakpoint: 768,
-                setting: {
-                    slidesToShow:4
+            pauseOnHover:true,
+            responsive: [
+                {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 4,
+                    slidesToScroll: 1
                 }
-            }, {
-                breakpoint: 520,
-                setting: {
-                    slidesToShow: 3
+                },
+                {
+                breakpoint: 800,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1
                 }
-            }]
+                },
+                {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+                }
+            ]
         });
     });
 
